@@ -1,2 +1,2 @@
 # BookTu
-Book Resource Web System based on HTML, JSP, MySQL, etc., Project for Software Engineering Course.
+A Web system for book resources transaction based on HTML, JSP, MySQL, etc., Project of Software Engineering course.
