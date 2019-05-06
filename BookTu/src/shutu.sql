@@ -66,7 +66,7 @@ create table CollectedLink
    primary key (collection_id)
 );
 
-alter table CollectedLink comment ' ’≤ÿ';
+alter table CollectedLink comment '√ä√ï¬≤√ò';
 
 /*==============================================================*/
 /* Table: MsgLeft                                               */
@@ -80,7 +80,7 @@ create table MsgLeft
    primary key (msg_id)
 );
 
-alter table MsgLeft comment '¡Ù—‘';
+alter table MsgLeft comment '√Å√¥√ë√î';
 
 /*==============================================================*/
 /* Table: Orders                                                */
@@ -217,4 +217,3 @@ alter table User_colection add constraint FK_User_colection foreign key (collect
 
 alter table User_colection add constraint FK_User_colection2 foreign key (account)
       references User (account);
-
