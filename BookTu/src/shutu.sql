@@ -50,6 +50,7 @@ create table BookComment
    user_id              int,
    book_id              int,
    time                 int,
+   title                varchar(50),
    content              varchar(10000),
    like_number          int,
    reply_to             int,
