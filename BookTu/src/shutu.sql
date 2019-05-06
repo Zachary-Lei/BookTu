@@ -164,7 +164,7 @@ create table SaleComment
 create table User
 (
    user_id              int not null,
-   password             int,
+   password             varchar(25),
    nickname             varchar(25),
    avatar               longblob,
    score                int,
