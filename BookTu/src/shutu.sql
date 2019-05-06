@@ -35,9 +35,10 @@ create table Book
    user_id              int,
    book_name            varchar(50),
    author               varchar(50),
-   introduction         varchar(500),
+   introduction         varchar(1000),
    score                int,
    type                 int,
+   publishing_house     varchar(50),
    primary key (book_id)
 );
 
@@ -49,9 +50,9 @@ create table BookComment
    book_comment_id      int not null,
    user_id              int,
    book_id              int,
-   time                 int,
+   time                 varchar(255),
    title                varchar(50),
-   content              varchar(10000),
+   content              varchar(10000),      
    like_number          int,
    reply_to             int,
    primary key (book_comment_id)
@@ -78,7 +79,7 @@ create table BookOrder
 (
    order_id             int not null,
    user_id              int,
-   time                 int,
+   time                 varchar(255),
    recv_address         varchar(100),
    purchase_num         int,
    primary key (order_id)
@@ -91,7 +92,7 @@ create table PersonalCenter
 (
    msg_id               int not null,
    user_id              int,
-   time                 int,
+   time                 varchar(255),
    content              varchar(10000),
    primary key (msg_id)
 );
@@ -105,7 +106,7 @@ create table Post
 (
    post_id              int not null,
    user_id              int,
-   time                 int,
+   time                 varchar(255),
    title                varchar(50),
    content              varchar(10000),
    like_number          int,
@@ -121,7 +122,7 @@ create table PostComment
    p_comment_id         int not null,
    post_id              int,
    user_id              int,
-   time                 int,
+   time                 varchar(255),
    content              varchar(10000),
    like_number          int,
    reply_to             int,
@@ -151,7 +152,7 @@ create table SaleComment
    s_comment_id         int not null,
    sale_id              int,
    user_id              int,
-   time                 int,
+   time                 varchar(255),
    content              varchar(10000),
    like_number          int,
    reply_to             int,
@@ -164,7 +165,7 @@ create table SaleComment
 create table User
 (
    user_id              int not null,
-   password             varchar(25),
+   password             varchar(20),
    nickname             varchar(25),
    avatar               longblob,
    score                int,
