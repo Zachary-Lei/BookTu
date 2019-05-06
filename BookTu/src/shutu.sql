@@ -1,43 +1,44 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/4/27 17:54:17                           */
+/* Created on:     2019/5/6 19:56:29                            */
 /*==============================================================*/
 
 
-drop table if exists Book;
+
 
 drop table if exists BookComment;
 
 drop table if exists CollectedLink;
 
-drop table if exists MsgLeft;
-
-drop table if exists Orders;
-
-drop table if exists Post;
+drop table if exists PersonalCenter;
 
 drop table if exists PostComment;
 
-drop table if exists Sale;
-
 drop table if exists SaleComment;
 
-drop table if exists User;
+drop table if exists Sale;
 
-drop table if exists User_colection;
+drop table if exists BookOrder;
+
+drop table if exists Post;
+
+drop table if exists Book;
+
+drop table if exists User;
 
 /*==============================================================*/
 /* Table: Book                                                  */
 /*==============================================================*/
 create table Book
 (
-   ISBN                 int not null,
-   bookname             varchar(50),
+   book_id              int not null,
+   user_id              int,
+   book_name            varchar(50),
    author               varchar(50),
    introduction         varchar(500),
    score                int,
    type                 int,
-   primary key (ISBN)
+   primary key (book_id)
 );
 
 /*==============================================================*/
@@ -45,14 +46,14 @@ create table Book
 /*==============================================================*/
 create table BookComment
 (
-   b_comment_id         int not null,
-   account              int not null,
-   ISBN                 int not null,
+   book_comment_id      int not null,
+   user_id              int,
+   book_id              int,
    time                 int,
-   content              varchar(500),
-   num_likes            int,
+   content              varchar(10000),
+   like_number          int,
    reply_to             int,
-   primary key (b_comment_id)
+   primary key (book_comment_id)
 );
 
 /*==============================================================*/
@@ -61,6 +62,7 @@ create table BookComment
 create table CollectedLink
 (
    collection_id        int not null,
+   user_id              int,
    link                 varchar(500),
    link_name            varchar(100),
    primary key (collection_id)
@@ -69,32 +71,31 @@ create table CollectedLink
 alter table CollectedLink comment 'ÊÕ²Ø';
 
 /*==============================================================*/
-/* Table: MsgLeft                                               */
+/* Table: "Order"                                               */
 /*==============================================================*/
-create table MsgLeft
+create table BookOrder
+(
+   order_id             int not null,
+   user_id              int,
+   time                 int,
+   recv_address         varchar(100),
+   purchase_num         int,
+   primary key (order_id)
+);
+
+/*==============================================================*/
+/* Table: PersonalCenter                                        */
+/*==============================================================*/
+create table PersonalCenter
 (
    msg_id               int not null,
-   account              int not null,
+   user_id              int,
    time                 int,
-   content              varchar(500),
+   content              varchar(10000),
    primary key (msg_id)
 );
 
-alter table MsgLeft comment 'ÁôÑÔ';
-
-/*==============================================================*/
-/* Table: Orders                                                */
-/*==============================================================*/
-create table Orders
-(
-   order_id             int not null,
-   sale_id              int not null,
-   account              int not null,
-   time                 int,
-   recv_address         varchar(100),
-   num_purchase         int,
-   primary key (order_id)
-);
+alter table PersonalCenter comment 'ÁôÑÔ';
 
 /*==============================================================*/
 /* Table: Post                                                  */
@@ -102,11 +103,11 @@ create table Orders
 create table Post
 (
    post_id              int not null,
-   account              int not null,
+   user_id              int,
    time                 int,
    title                varchar(50),
-   content              varchar(500),
-   num_likes            int,
+   content              varchar(10000),
+   like_number          int,
    type                 int,
    primary key (post_id)
 );
@@ -117,11 +118,11 @@ create table Post
 create table PostComment
 (
    p_comment_id         int not null,
-   post_id              int not null,
-   account              int not null,
+   post_id              int,
+   user_id              int,
    time                 int,
-   content              varchar(500),
-   num_likes            int,
+   content              varchar(10000),
+   like_number          int,
    reply_to             int,
    primary key (p_comment_id)
 );
@@ -132,7 +133,8 @@ create table PostComment
 create table Sale
 (
    sale_id              int not null,
-   ISBN                 int not null,
+   order_id             int,
+   book_id              int,
    merchant             varchar(50),
    price                int,
    send_address         varchar(100),
@@ -146,11 +148,11 @@ create table Sale
 create table SaleComment
 (
    s_comment_id         int not null,
-   sale_id              int not null,
-   account              int not null,
+   sale_id              int,
+   user_id              int,
    time                 int,
-   content              varchar(500),
-   num_likes            int,
+   content              varchar(10000),
+   like_number          int,
    reply_to             int,
    primary key (s_comment_id)
 );
@@ -160,60 +162,51 @@ create table SaleComment
 /*==============================================================*/
 create table User
 (
-   account              int not null,
+   user_id              int not null,
    password             int,
    nickname             varchar(25),
    avatar               longblob,
    score                int,
    introduction         varchar(500),
-   primary key (account)
+   primary key (user_id)
 );
 
-/*==============================================================*/
-/* Table: User_colection                                        */
-/*==============================================================*/
-create table User_colection
-(
-   collection_id        int not null,
-   account              int not null,
-   primary key (collection_id, account)
-);
+alter table Book add constraint FK_user_book foreign key (user_id)
+      references User (user_id);
 
-alter table BookComment add constraint FK_BookComment_user foreign key (account)
-      references User (account);
+alter table BookComment add constraint FK_book_comment foreign key (book_id)
+      references Book (book_id);
 
-alter table BookComment add constraint FK_Book_comments foreign key (ISBN)
-      references Book (ISBN);
+alter table BookComment add constraint FK_user_book_comment foreign key (user_id)
+      references User (user_id);
 
-alter table MsgLeft add constraint FK_User_msg foreign key (account)
-      references User (account);
+alter table CollectedLink add constraint FK_user_collection foreign key (user_id)
+      references User (user_id);
 
-alter table Orders add constraint FK_Sale_order foreign key (sale_id)
-      references Sale (sale_id);
+alter table BookOrder add constraint FK_user_order foreign key (user_id)
+      references User (user_id);
 
-alter table Orders add constraint FK_User_order foreign key (account)
-      references User (account);
+alter table PersonalCenter add constraint FK_user_personal_center foreign key (user_id)
+      references User (user_id);
 
-alter table Post add constraint FK_Post_user foreign key (account)
-      references User (account);
+alter table Post add constraint FK_user_post foreign key (user_id)
+      references User (user_id);
 
-alter table PostComment add constraint FK_PostComment_user foreign key (account)
-      references User (account);
-
-alter table PostComment add constraint FK_Post_comments foreign key (post_id)
+alter table PostComment add constraint FK_post_comment foreign key (post_id)
       references Post (post_id);
 
-alter table Sale add constraint FK_SellBook foreign key (ISBN)
-      references Book (ISBN);
+alter table PostComment add constraint FK_user_post_comment foreign key (user_id)
+      references User (user_id);
 
-alter table SaleComment add constraint FK_SaleComment_user foreign key (account)
-      references User (account);
+alter table Sale add constraint FK_book_sale foreign key (book_id)
+      references Book (book_id);
 
-alter table SaleComment add constraint FK_Sale_comments foreign key (sale_id)
+alter table Sale add constraint FK_order_sale foreign key (order_id)
+      references BookOrder (order_id);
+
+alter table SaleComment add constraint FK_sale_comment foreign key (sale_id)
       references Sale (sale_id);
 
-alter table User_colection add constraint FK_User_colection foreign key (collection_id)
-      references CollectedLink (collection_id);
+alter table SaleComment add constraint FK_user_sale_comment foreign key (user_id)
+      references User (user_id);
 
-alter table User_colection add constraint FK_User_colection2 foreign key (account)
-      references User (account);
