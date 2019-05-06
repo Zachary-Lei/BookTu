@@ -169,6 +169,7 @@ create table User
    avatar               longblob,
    score                int,
    introduction         varchar(500),
+   user_type            int,
    primary key (user_id)
 );
 
