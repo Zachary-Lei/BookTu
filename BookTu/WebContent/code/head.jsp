@@ -32,22 +32,24 @@
 
                     <!-- nav links -->
                     <div class="collapse navbar-collapse" id="main-nav-collapse">
-                        <ul class="nav navbar-nav navbar-right text-uppercase">
+                        <ul class="nav navbar-nav navbar-left text-uppercase">
                             <li>
                                 <a href="index.jsp"><span>主页</span></a>
                             </li>
+
+                           <% if (session.getAttribute("login_id") != null) { %>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>书籍推荐</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="NewBook.jsp">新书速览</a>
+                                        <a href="service.html">新书速览</a>
                                     </li>
                                     <li>
                                         <a href="service.html">最受欢迎书籍</a>
                                     </li>
                                     <li>
-                                        <a href="portfolio.html">热门书评</a>
+                                        <a href="portfolio.html">....</a>
                                     </li>
                                     <li>
                                         <a href="gallery.html">gallery</a>
@@ -62,13 +64,13 @@
                             </li> <!-- end of /.dropdown -->
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>blog</span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>社区</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="multiple_blog_left_sidebar.html">multiple with left sidebar</a>
+                                        <a href="book_review.jsp">热门书评</a>
                                     </li>
                                     <li>
-                                        <a href="multiple_blog.html">multiple with right sidebar</a>
+                                        <a href="...">话题</a>
                                     </li>
                                     <li>
                                         <a href="single_blog_left_sidebar.html">single with left sidebar</a>
@@ -107,6 +109,41 @@
                                     </li>
                                 </ul> <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
+                           
+                           
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right text-uppercase">
+                            
+                            <li class="dropdown"  >	
+                              <a href="PC_PersonalCenter.jsp" role="button" >			
+                                <span>
+                                   用户 ： <%=session.getAttribute("login_id")%> 	
+                                </span>      
+                              </a>	
+                            </li>       
+
+                            <li class="nav navbar-nav navbar-right text-uppercase" >
+                                   <a href="logout.jsp"  role="button">注销</a>
+                            </li>
+                            
+                
+                           <%} 
+											
+		  else { 
+                           
+                           %>
+                                      
+                            <li class="dropdown" >
+                               <a href="register.jsp"  role="button">注册</a>
+                            </li>
+                            <li class="dropdown" >
+                               <a href="login.jsp"  role="button">登录</a>
+                            </li>
+                            
+                           <%} 
+                           
+                           %>
+                            
                         </ul>
                     </div><!-- nav links -->
                     
