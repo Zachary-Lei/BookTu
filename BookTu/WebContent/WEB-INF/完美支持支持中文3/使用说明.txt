@@ -1,0 +1,3 @@
+进行处理上传的jsp中进行设置
+SmartUpload　su　＝　new　SmartUpload();
+su.setCharset("UTF-8");
