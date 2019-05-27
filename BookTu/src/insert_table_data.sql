@@ -18,5 +18,5 @@ insert into BookComment values(3,4,3,"2019.2.4","遇见对的人之前，你得�
 insert into BookComment values(4,5,4,"2019.4.5","有些流行小说，一直流行到它们成了经典","比如“绿茶女主套路渣男一般的高帅富男主”、“原配家属大闹小三和渣男婚礼”、“女主祸害备胎多年后又回到渣男怀抱”……",20,13);
 insert into BookComment values(5,1,5,"2019.4.6","爱是天时地利的迷信","喜欢乍见之欢，是在阳光的午后穿的那件白衬衫，是操场上那个飞驰而过奔跑的身影。",20,13);
 
-
-
+insert into Message values(1,2,"那些让你能说出为什么喜欢的句子真的是你喜欢的吗？");
+insert into Message values(2,1,"脑叶白质切除手术究竟在救人还是杀人？");
