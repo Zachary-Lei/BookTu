@@ -18,8 +18,9 @@ insert into BookComment values(3,4,3,"2019.2.4","遇见对的人之前，你得�
 insert into BookComment values(4,5,4,"2019.4.5","有些流行小说，一直流行到它们成了经典","比如“绿茶女主套路渣男一般的高帅富男主”、“原配家属大闹小三和渣男婚礼”、“女主祸害备胎多年后又回到渣男怀抱”……",20,13);
 insert into BookComment values(5,1,5,"2019.4.6","爱是天时地利的迷信","喜欢乍见之欢，是在阳光的午后穿的那件白衬衫，是操场上那个飞驰而过奔跑的身影。",20,13);
 
-insert into Message values(1,2,"那些让你能说出为什么喜欢的句子真的是你喜欢的吗？");
-insert into Message values(2,1,"脑叶白质切除手术究竟在救人还是杀人？");
-insert into Message values(3,2,"热情是刺激欲望必然的反射行为");
-insert into Message values(4,1,"人生很吊诡的那个地方在于，你往往很动心的那个时刻，都是在你还没准备好的时候遇到。当你准备好一切，却很难找回当初动心的那个瞬间了。");
-insert into Message values(5,1,"<b>你也曾幻想</b>，<i>在无花果树里寻花</i>");
+
+insert into Message values(1,2,"杂感","2019.5.24","那些让你能说出为什么喜欢的句子真的是你喜欢的吗？");
+insert into Message values(2,1,"禁闭岛","2019.5.26","脑叶白质切除手术究竟在救人还是杀人？");
+insert into Message values(3,2,"近未来","2019.1.1","热情是刺激欲望必然的反射行为");
+insert into Message values(4,1,"语录","2019.5.27","人生很吊诡的那个地方在于，你往往很动心的那个时刻，都是在你还没准备好的时候遇到。当你准备好一切，却很难找回当初动心的那个瞬间了。");
+insert into Message values(5,1,"近未来","2019.5.26","<b>你也曾幻想</b>，<i>在无花果树里寻花</i>");
