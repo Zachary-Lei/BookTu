@@ -4,12 +4,25 @@
     pageEncoding="ISO-8859-1"--%>
 <!DOCTYPE html>
 
+<%@ include file="dbconnect.jsp" %>
 <%
-String qq="735791821";
-String wechat="735791821";
-String phone_number="18680212182";
-String email_address="leizhq5@mail2.sysu.edu.cn";
-String self_intro="I<br/>am<br/>Zachary Lei!";
+//--session.setAttribute("login_id", 123);
+
+Statement stmt = connect.createStatement(); 
+
+String nickname="";
+String avator="";
+String score="";
+String self_intro="";
+
+ResultSet rs=stmt.executeQuery("select * from User where user_id = "+session.getAttribute("login_id"));
+while(rs.next())
+{
+	nickname += rs.getString(3);
+	avator = rs.getString(4);
+	score += rs.getString(5);
+	self_intro += rs.getString(6);
+}
 %>
     
 
@@ -40,7 +53,7 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
 
     <body>
 
-        <div id="contact-page">
+        <div id="about-page">
 
 
             <jsp:include page="head.jsp" flush="true"/>
@@ -66,6 +79,9 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
             </header> <!-- /.page-head (header end) -->
 
 
+ <%
+ if (session.getAttribute("login_id") != null) {
+ %>
             <div class="main-content">
                 <div class="container">
 
@@ -90,10 +106,9 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
                                         </div>
 
                                         <div class="col-md-9 col-xs-9 address-info-desc">
-                                            <h3>QQ/微信</h3>
+                                            <h3>昵称</h3>
                                             <p>
-                                                <%= qq %><br/>
-                                                <%= wechat %>
+                                                <%= nickname %>
                                             </p>
                                         </div> <!-- /.address-info-desc -->
 
@@ -107,14 +122,14 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
 
                                         <div class="col-md-3 col-xs-3">
                                             <div class="address-info-icon text-center center-block bg-light-gray">
-                                                <i class="fa fa-phone"></i>
+                                                <i class="fa fa-map-marker"></i>
                                             </div> <!-- /.address-info-icon -->
                                         </div>
 
                                         <div class="col-md-9 col-xs-9 address-info-desc">
-                                            <h3>电话号码</h3>
+                                            <h3>头像</h3>
                                             <p>
-                                                <%= phone_number %>
+                                                <%= avator %>
                                             </p>
                                         </div> <!-- /.address-info-desc -->
 
@@ -128,14 +143,14 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
 
                                         <div class="col-md-3 col-xs-3">
                                             <div class="address-info-icon text-center center-block bg-light-gray">
-                                                <i class="fa fa-envelope-o"></i>
+                                                <i class="fa fa-map-marker"></i>
                                             </div> <!-- /.address-info-icon -->
                                         </div>
 
                                         <div class="col-md-9 col-xs-9 address-info-desc">
-                                            <h3>邮箱</h3>
+                                            <h3>积分</h3>
                                             <p>
-                                                <%= email_address %>
+                                                <%= score %>
                                             </p>
                                         </div> <!-- /.address-info-desc -->
 
@@ -169,7 +184,9 @@ String self_intro="I<br/>am<br/>Zachary Lei!";
                 </div> <!-- container -->
             </div>
             <!-- main-content end -->
-
+<% 
+}
+%>
 
 		<jsp:include page="PC_foot.jsp" flush="true"/>
     </body>
