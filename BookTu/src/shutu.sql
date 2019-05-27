@@ -26,7 +26,7 @@ drop table if exists Book;
 
 drop table if exists User;
 
-drop table if exists Messsage;
+drop table if exists Message;
 
 /*==============================================================*/
 /* Table: Book                                                  */
@@ -183,6 +183,8 @@ create table Message
 (
    message_id           int not null auto_increment,
    user_id              int,
+   title                varchar(100),
+   time                 varchar(255),
    content              varchar(500),
    primary key (message_id)
 );
