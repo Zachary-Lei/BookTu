@@ -26,6 +26,8 @@ drop table if exists Book;
 
 drop table if exists User;
 
+drop table if exists Messsage;
+
 /*==============================================================*/
 /* Table: Book                                                  */
 /*==============================================================*/
@@ -174,6 +176,17 @@ create table User
    primary key (user_id)
 );
 
+/*==============================================================*/
+/* Table: Message                                               */
+/*==============================================================*/
+create table Message
+(
+   message_id           int not null auto_increment,
+   user_id              int,
+   content              varchar(500),
+   primary key (message_id)
+);
+
 alter table Book add constraint FK_user_book foreign key (user_id)
       references User (user_id);
 
@@ -213,3 +226,5 @@ alter table SaleComment add constraint FK_sale_comment foreign key (sale_id)
 alter table SaleComment add constraint FK_user_sale_comment foreign key (user_id)
       references User (user_id);
 
+alter table Message add constraint FK_user_message foreign key (user_id)
+      references User (user_id);
