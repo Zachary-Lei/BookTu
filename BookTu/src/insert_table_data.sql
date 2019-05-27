@@ -24,3 +24,7 @@ insert into Message values(2,1,"禁闭岛","2019.5.26","脑叶白质切除手术
 insert into Message values(3,2,"近未来","2019.1.1","热情是刺激欲望必然的反射行为");
 insert into Message values(4,1,"语录","2019.5.27","人生很吊诡的那个地方在于，你往往很动心的那个时刻，都是在你还没准备好的时候遇到。当你准备好一切，却很难找回当初动心的那个瞬间了。");
 insert into Message values(5,1,"近未来","2019.5.26","<b>你也曾幻想</b>，<i>在无花果树里寻花</i>");
+
+
+insert into CollectedLink values(1,1,"https://www.baidu.com","百度");
+insert into CollectedLink values(2,1,"https://github.com/Zachary-Lei/BookTu","书途");
