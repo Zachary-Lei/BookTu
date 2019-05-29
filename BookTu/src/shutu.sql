@@ -6,6 +6,8 @@
 
 
 
+drop table if exists BookCommentReply;
+
 drop table if exists BookComment;
 
 drop table if exists CollectedLink;
@@ -24,9 +26,11 @@ drop table if exists Post;
 
 drop table if exists Book;
 
-drop table if exists User;
+drop table if exists Resources;
 
 drop table if exists Message;
+
+drop table if exists User;
 
 /*==============================================================*/
 /* Table: Book                                                  */
@@ -58,6 +62,17 @@ create table BookComment
    like_number          int,
    reply_to             int,
    primary key (book_comment_id)
+);
+
+
+create table BookCommentReply
+(
+	book_comment_reply_id int not null,
+    user_id               int,
+    book_comment_id       int,
+    time                  varchar(255),
+    content               varchar(1000),
+    primary key (book_comment_reply_id)
 );
 
 /*==============================================================*/
@@ -162,6 +177,22 @@ create table SaleComment
 );
 
 /*==============================================================*/
+/* Table: Resources                                          */
+/*==============================================================*/
+create table if not exists Resources
+(
+   resource_id      int not null,
+   user_id          int,
+   resource_name    varchar(255),
+   description      varchar(255),
+   filename       varchar(255),
+   time					varchar(255),
+   primary key (resource_id)
+);
+
+
+
+/*==============================================================*/
 /* Table: User                                                  */
 /*==============================================================*/
 create table User
@@ -188,6 +219,10 @@ create table Message
    content              varchar(500),
    primary key (message_id)
 );
+
+
+alter table Resources add constraint FK_user_resource foreign key (user_id)
+      references User (user_id);
 
 alter table Book add constraint FK_user_book foreign key (user_id)
       references User (user_id);
@@ -227,6 +262,13 @@ alter table SaleComment add constraint FK_sale_comment foreign key (sale_id)
 
 alter table SaleComment add constraint FK_user_sale_comment foreign key (user_id)
       references User (user_id);
+      
+alter table BookCommentReply add constraint FK_user_book_comment_reply foreign key (user_id)
+      references User (user_id);
+     
+alter table BookCommentReply add constraint FK_book_comment_book_comment_reply foreign key (book_comment_id)
+      references BookComment (book_comment_id);
 
 alter table Message add constraint FK_user_message foreign key (user_id)
       references User (user_id);
+
