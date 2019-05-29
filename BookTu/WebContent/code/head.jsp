@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>BookTu</title>
 </head>
 <body>
             <!-- site-navigation start -->  
@@ -37,7 +37,7 @@
                                 <a href="index.jsp"><span>主页</span></a>
                             </li>
 
-                           <% if (session.getAttribute("login_id") != null) { %>
+							<% if (session.getAttribute("login_id") != null) { %>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>书籍推荐</span></a>
@@ -70,16 +70,16 @@
                                         <a href="book_review.jsp">热门书评</a>
                                     </li>
                                     <li>
-                                        <a href="...">话题</a>
+                                        <a href="write_book_comment.jsp">写书评</a>
+                                    </li>    
+                                    <li>
+                                        <a href="resource_browse.jsp">资源浏览</a>
+                                    </li>
+                                    <li>  
+                                        <a href="resource_upload.jsp">分享资源</a>
                                     </li>
                                     <li>
-                                        <a href="single_blog_left_sidebar.html">single with left sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a href="single_blog.html">single with right sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a href="single_blog_full_width.html">single full width</a>
+                                        <a href="write_book.jsp">撰写书籍推荐</a>
                                     </li>
                                 </ul> <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
@@ -112,32 +112,32 @@
                            
                            
                       </ul>
-                      <ul class="nav navbar-nav navbar-right text-uppercase">
+					  <ul class="nav navbar-nav navbar-right text-uppercase">
                             
                             <li class="dropdown"  >	
                               <a href="PC_PersonalCenter.jsp" role="button" >			
-                                <span>
-                                   用户 ： <%=session.getAttribute("login_id")%> 	
+	   							<span>
+                                                                                           用户 ： <%=session.getAttribute("nickname")%> 	
                                 </span>      
                               </a>	
-                            </li>       
-
-                            <li class="nav navbar-nav navbar-right text-uppercase" >
-                                   <a href="logout.jsp"  role="button">注销</a>
+					 		</li>       
+					 		
+					 		<li class="nav navbar-nav navbar-right text-uppercase" >
+							   <a href="logout.jsp"  role="button">注销</a>
                             </li>
                             
                 
                            <%} 
 											
-		  else { 
+						  else { 
                            
                            %>
                                       
                             <li class="dropdown" >
-                               <a href="register.jsp"  role="button">注册</a>
-                            </li>
-                            <li class="dropdown" >
-                               <a href="login.jsp"  role="button">登录</a>
+							   <a href="register.jsp"  role="button">注册</a>
+					 		</li>
+					 		<li class="dropdown" >
+							   <a href="login.jsp"  role="button">登录</a>
                             </li>
                             
                            <%} 
