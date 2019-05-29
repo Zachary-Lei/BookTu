@@ -12,8 +12,6 @@ drop table if exists BookComment;
 
 drop table if exists CollectedLink;
 
-drop table if exists PersonalCenter;
-
 drop table if exists PostComment;
 
 drop table if exists SaleComment;
@@ -101,20 +99,6 @@ create table BookOrder
    purchase_num         int,
    primary key (order_id)
 );
-
-/*==============================================================*/
-/* Table: PersonalCenter                                        */
-/*==============================================================*/
-create table PersonalCenter
-(
-   msg_id               int not null,
-   user_id              int,
-   time                 varchar(255),
-   content              varchar(10000),
-   primary key (msg_id)
-);
-
-alter table PersonalCenter comment 'ÁôÑÔ';
 
 /*==============================================================*/
 /* Table: Post                                                  */
