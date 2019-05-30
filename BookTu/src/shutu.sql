@@ -41,7 +41,7 @@ create table Book
    author               varchar(50),
    introduction         varchar(1000),
    score                int,
-   type                 int,
+   type                 varchar(50),
    publishing_house     varchar(50),
    primary key (book_id)
 );
