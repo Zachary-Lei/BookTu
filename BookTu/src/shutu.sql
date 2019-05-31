@@ -223,9 +223,6 @@ alter table CollectedLink add constraint FK_user_collection foreign key (user_id
 alter table BookOrder add constraint FK_user_order foreign key (user_id)
       references User (user_id);
 
-alter table PersonalCenter add constraint FK_user_personal_center foreign key (user_id)
-      references User (user_id);
-
 alter table Post add constraint FK_user_post foreign key (user_id)
       references User (user_id);
 
