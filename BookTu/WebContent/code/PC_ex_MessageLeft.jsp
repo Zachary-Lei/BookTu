@@ -52,7 +52,6 @@
 			    pstmt.executeUpdate();
 					
 			    %>
-			
 			    <script type="text/javascript">
 			    	window.location.replace("PC_MessageLeft.jsp");
 			    </script><%

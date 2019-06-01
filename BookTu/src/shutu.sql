@@ -3,7 +3,7 @@
 /* Created on:     2019/5/6 19:56:29                            */
 /*==============================================================*/
 
-
+use booktu;
 
 
 drop table if exists BookCommentReply;
@@ -30,6 +30,10 @@ drop table if exists Message;
 
 drop table if exists User;
 
+drop table if exists Saleable_Books;
+
+drop table if exists Order_records;
+
 /*==============================================================*/
 /* Table: Book                                                  */
 /*==============================================================*/
@@ -41,7 +45,7 @@ create table Book
    author               varchar(50),
    introduction         varchar(1000),
    score                int,
-   type                 varchar(50),
+   type                 int,
    publishing_house     varchar(50),
    primary key (book_id)
 );
@@ -204,6 +208,36 @@ create table Message
    primary key (message_id)
 );
 
+/*==============================================================*/
+/* Table: Saleable_Books                                        */
+/*==============================================================*/
+create table Saleable_Books
+(
+   isbn              	char(13),
+   book_name            varchar(50),
+   author               varchar(50),
+   publishing_house     varchar(50),
+   price                int,
+   introduction         varchar(500),
+   primary key (isbn)
+);
+
+/*==============================================================*/
+/* Table: Order_records                                         */
+/*==============================================================*/
+create table Order_records
+(
+   order_id             int not null,
+   user_id				int,
+   commitdate           varchar(50),
+   totalprice			int,
+   reciever             varchar(50),
+   phone				char(11),
+   message				varchar(100),
+   country				varchar(10),
+   rec_address          varchar(50),
+   primary key (order_id)
+);
 
 alter table Resources add constraint FK_user_resource foreign key (user_id)
       references User (user_id);

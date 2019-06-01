@@ -88,6 +88,10 @@
                                 <a href="contact.html"><span>contact</span></a>
                             </li>
                             
+                            <li>
+                                <a href="mall.jsp"><span>在线书店</span></a>
+                            </li>
+                            
                             <%--<li>
                                 <a href="PersonalCenter.jsp"><span>个人中心</span></a>
                             </li> --%>
