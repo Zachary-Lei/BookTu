@@ -22,7 +22,7 @@
 		String address = request.getParameter("field13");
 
 		boolean cond1 =  (order_id != "" && order_id != null) && (price != "" && price != null) && (nowtime != "" && nowtime != null);
-		boolean cond2 = (reciever!="" && reciever!=null) && (phone != "" && phone != null) && (message != "" && message != null);
+		boolean cond2 = (reciever!="" && reciever!=null) && (phone != "" && phone != null);
 		boolean cond3 = (country != "" && country!= null) && (address != "" && address!= null);
 		
 		if(cond1 && cond2 && cond3)
@@ -43,7 +43,7 @@
 
 			    %>
 			    <script type="text/javascript">
-			    	window.location.replace("mall_myordes.jsp");
+			    	window.location.replace("mall_myorders.jsp");
 			    </script><%
 			}
 			catch(Exception e) {
@@ -54,7 +54,6 @@
 		connect.close();
 		%>
 		
-
 	<script type="text/javascript">
     	window.location.replace("mall_myorders.jsp");
     </script>

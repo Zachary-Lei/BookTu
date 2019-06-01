@@ -175,24 +175,23 @@
 		        <legend>客户信息</legend>
 		        <div class="form-row">
 		            <div class="field-label"><label for="field9">收件人</label>:</div>
-		            <div class="field-widget"><input name="field9" id="field9" class="required" title="Enter your name" /></div>
+		            <div class="field-widget"><input name="field9" id="field9" required="required" placeholder="选择收件人"/></div>
 		        </div>
 		        
 		        <div class="form-row">
 		            <div class="field-label"><label for="field10">联系方式</label>:</div>
-		            <div class="field-widget"><input name="field10" id="field10" class="required" title="Enter your name" /></div>
+		            <div class="field-widget"><input name="field10" id="field10" required="required" title="Enter your name" /></div>
 		        </div>
 		        
 		        <div class="form-row">
 		            <div class="field-label"><label for="field11">买家留言</label>:</div>
-		            <div class="field-widget"><textarea name="field11" id="field11" class="required"></textarea></div>
+		            <div class="field-widget"><textarea name="field11" id="field11"></textarea></div>
 		        </div>
 		        
 		        <div class="form-row">
 		            <div class="field-label"><label for="field12">国家</label>:</div>
 		            <div class="field-widget">
-		                <select id="field12" name="field12" class="validate-selection" title="Choose your department">
-		                	<option>默认</option>
+		                <select id="field12" name="field12" required="required">
 		                    <option>中国</option>
 		                    <option>美国</option>
 		                    <option>澳大利亚</option>
@@ -203,7 +202,7 @@
 		        
 		        <div class="form-row">
 		            <div class="field-label"><label for="field13">详细地址(省份/市/区/街道)</label>:</div>
-		            <div class="field-widget"><input type="text" name="field13" id="field13" class="required" title="Enter a password greater than 6 characters" /></div>
+		            <div class="field-widget"><input type="text" name="field13" id="field13" required="required" title="Enter a password greater than 6 characters" /></div>
 		        </div>
 		    </fieldset>
 

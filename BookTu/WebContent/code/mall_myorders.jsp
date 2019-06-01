@@ -1,6 +1,8 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*,java.text.*" errorPage="" %>
+<%@ page import="java.util.Date" %>
 
 <!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -40,7 +42,7 @@
  %>
 
         <div id="mall-page">
-
+            
 			<jsp:include page="head.jsp" flush="true"/>
 
             <!-- header begin -->
@@ -52,8 +54,8 @@
 
                                 <ol class="breadcrumb">
                                     <li><a href="index.jsp">首页</a></li>
-                                    <li class="active">在线书店</li>
-                                    <li><a href="mall_myorders.jsp">我的订单</a></li>
+                                    <li><a href="mall.jsp">在线书店</a></li>
+                                    <li class="active">我的订单</li>
                                 </ol> <!-- end of /.breadcrumb -->
 
                             </div>
@@ -63,7 +65,7 @@
             </header> <!-- /.page-head (header end) -->
 
 		
-			<%@ include file="dbconnect.jsp" %>
+            <%@ include file="dbconnect.jsp" %>
 			<% request.setCharacterEncoding("UTF-8"); %>
 			<%
 				Statement stmt = connect.createStatement(); 
@@ -77,7 +79,8 @@
 				String country = "";
 				String address = "";
 							
-				String sql = "select * from order_records where user_id = "+session.getAttribute("login_id");
+				String user_id = session.getAttribute("login_id").toString();
+				String sql = "select * from order_records where user_id = "+user_id+" order by commitdate desc";
 				ResultSet rs=stmt.executeQuery(sql);
 				while(rs.next())
 				{
@@ -120,7 +123,7 @@
 		        </div> 
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field6">国家</label>:</div>
+		            <div class="field-label"><label for="field6">买家留言</label>:</div>
 		            <p><%= message%></p>
 		        </div>
 		        
@@ -140,8 +143,9 @@
 				}
 		    %>
 		    </div><!-- form_content -->
-<%
- }
+		    
+<% 
+}
 %>
             <footer>
                 <div class="container">
@@ -226,16 +230,31 @@
         <script type="text/javascript" src="assets/js/jquery.hoverdir.js"></script>
         <script type="text/javascript" src="assets/js/script.js"></script>
 
-
-   		<script type="text/javascript">
-            $(function() {
+	    <script type="text/javascript">
+	        function formCallback(result, form) {
+	            window.status = "valiation callback for form '" + form.id + "': result = " + result;
+	        }
+	        
+	        var valid = new Validation('test', {immediate : true, onFormValidate : formCallback});
+	        Validation.addAllThese([
+	            ['validate-password', '> 6 characters', {
+	                minLength : 7,
+	                notOneOf : ['password','PASSWORD','1234567','0123456'],
+	                notEqualToField : 'field1'
+	            }],
+	            ['validate-password-confirm', 'please try again.', {
+	                equalToField : 'field8'
+	            }]
+	        ]);
+	        
+	        $(function() {
 
                 $('.mall-item > .item-image').each( function() { $(this).hoverdir({
                     hoverDelay : 75
                 }); } );
 
             });
-        </script>
+	    </script>
         
 
 	</body>
