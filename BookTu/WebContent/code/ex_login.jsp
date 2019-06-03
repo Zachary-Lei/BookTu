@@ -27,6 +27,7 @@
 				out.print(pass1);	
 				if (pass.compareTo(pass1) == 0) {
 					session.setAttribute("login_id",user_id);
+					session.setAttribute("nickname",rs1.getString(3));
 					session.setAttribute("user_type",rs1.getString(7));
 					%>
 				    <script type="text/javascript">
