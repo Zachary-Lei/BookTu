@@ -90,6 +90,7 @@
 							String publishing_house="";
 							String price="";
 							String introdution="";
+							String score="";
 							String figure = "";
 							
 							ResultSet rs=stmt.executeQuery("select * from saleable_books");
@@ -100,7 +101,8 @@
 								author = rs.getString(3);
 								publishing_house = rs.getString(4);
 								price = rs.getString(5);
-								introdution = rs.getString(6);
+								score = rs.getString(6);
+								introdution = rs.getString(7);
 								
 								figure = "assets/img/mall/"+ isbn +".jpg";
 								%>
@@ -128,7 +130,7 @@
                                                 <div class="col-xs-6">
                                                     <span class="like">
                                                         <i class="fa fa-heart-o"></i>
-                                                        <%= price %>
+                                                        <%= score %>
                                                     </span>
                                                 </div>
                                             </div>

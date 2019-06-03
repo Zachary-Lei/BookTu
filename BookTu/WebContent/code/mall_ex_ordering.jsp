@@ -11,6 +11,7 @@
 	<% request.setCharacterEncoding("UTF-8"); %>
 	<% 
 		//new order
+		String isbn = request.getParameter("isbn");
 		String price = request.getParameter("price");
 		String order_id = request.getParameter("order");
 		String nowtime = request.getParameter("commit");
@@ -28,7 +29,7 @@
 		if(cond1 && cond2 && cond3)
 		{
 			try{
-				String sql="insert into order_records(order_id,user_id,commitdate,totalprice,reciever,phone,message,country,rec_address) values(?,?,?,?,?,?,?,?,?)";
+				String sql="insert into order_records(order_id,user_id,commitdate,totalprice,reciever,phone,message,country,rec_address,isbn) values(?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement pstmt=connect.prepareStatement(sql);
 				pstmt.setInt(1, Integer.parseInt(order_id));
 				pstmt.setInt(2, Integer.parseInt(session.getAttribute("login_id").toString()));
@@ -39,6 +40,7 @@
 				pstmt.setString(7, message);
 				pstmt.setString(8, country);
 				pstmt.setString(9, address);
+				pstmt.setString(10, isbn);
 			    pstmt.executeUpdate();
 
 			    %>

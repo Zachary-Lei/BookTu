@@ -30,9 +30,12 @@ drop table if exists Message;
 
 drop table if exists User;
 
+drop table if exists Order_records;
+
+drop table if exists Saleable_comments;
+
 drop table if exists Saleable_Books;
 
-drop table if exists Order_records;
 
 /*==============================================================*/
 /* Table: Book                                                  */
@@ -218,6 +221,7 @@ create table Saleable_Books
    author               varchar(50),
    publishing_house     varchar(50),
    price                int,
+   score				int,
    introduction         varchar(500),
    primary key (isbn)
 );
@@ -236,8 +240,22 @@ create table Order_records
    message				varchar(100),
    country				varchar(10),
    rec_address          varchar(50),
+   isbn              	char(13),
    primary key (order_id)
 );
+
+/*==============================================================*/
+/* Table: Order_records                                         */
+/*==============================================================*/
+create table Saleable_comments
+(
+   id              		int,
+   isbn              	char(13),
+   user_id				int,
+   comments		        varchar(500),
+   primary key (id)
+);
+
 
 alter table Resources add constraint FK_user_resource foreign key (user_id)
       references User (user_id) on delete cascade on update cascade;
@@ -287,3 +305,11 @@ alter table BookCommentReply add constraint FK_book_comment_book_comment_reply f
 alter table Message add constraint FK_user_message foreign key (user_id)
       references User (user_id) on delete cascade on update cascade;
 
+alter table Saleable_comments add constraint FK_salecomment foreign key (isbn)
+      references Saleable_Books(isbn) on delete cascade on update cascade;
+
+alter table Saleable_comments add constraint FK_comment_user foreign key (user_id)
+      references User (user_id) on delete cascade on update cascade;
+      
+alter table Order_records add constraint FK_book_order foreign key (isbn)
+      references Saleable_Books(isbn) on delete cascade on update cascade;

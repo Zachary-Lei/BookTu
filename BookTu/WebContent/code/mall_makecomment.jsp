@@ -54,8 +54,8 @@
 
                                 <ol class="breadcrumb">
                                     <li><a href="index.jsp">首页</a></li>
-                                    <li><a href="mall.jsp">在线书店</a></li>
-                                    <li class="active">我的订单</li>
+                                    <li class="active">在线书店</li>
+                                    <li><a href="mall_myorders.jsp">我的订单</a></li>
                                 </ol> <!-- end of /.breadcrumb -->
 
                             </div>
@@ -66,106 +66,125 @@
 
 		
             <%@ include file="dbconnect.jsp" %>
-			<% request.setCharacterEncoding("UTF-8"); %>
 			<%
-				Statement stmt = connect.createStatement(); 
-							
-				String order_id="";
-				String commitdate="";
-				String totalprice="";
-				String reciever="";
-				String phone="";
-				String message="";
-				String country = "";
-				String address = "";
-				String isbn = "";
-							
-				String user_id = session.getAttribute("login_id").toString();
-				String sql = "select * from order_records where user_id = "+user_id+" order by commitdate desc";
-				ResultSet rs=stmt.executeQuery(sql);
-				while(rs.next())
-				{
-					order_id = rs.getString(1);
-					commitdate = rs.getString(3);
-					totalprice = rs.getString(4);
-					reciever = rs.getString(5);
-					phone = rs.getString(6);
-					message = rs.getString(7);
-					country = rs.getString(8);
-					address = rs.getString(9);
-					isbn = rs.getString(10);
-			%>
-								
-			<div class="form_content">
-			 <fieldset>
+			Statement stmt = connect.createStatement(); 
+
+	    	String isbn = request.getParameter("isbn");
+	    	String order_id = request.getParameter("order");
+	    	String figure = "assets/img/mall/"+ isbn +".jpg";
+	    	
+			String bookname="";
+			String author="";
+			String publishing_house="";
+			String score="";
+			String bookcom = "";
+			String date = "";
+			
+			ResultSet rs=stmt.executeQuery("select * from saleable_books where isbn = "+isbn);
+			while(rs.next())
+			{
+				bookname = rs.getString(2);
+				author = rs.getString(3);
+				publishing_house = rs.getString(4);
+				score = rs.getString(6);
+			}
+			
+			ResultSet rs2=stmt.executeQuery("select * from order_records where order_id = "+order_id);
+			while(rs2.next())
+			{
+				date = rs2.getString(3);
+			}
+		    %>
+		    
+		    <div class="form_content">
+		    <form id="test" action="mall_ex_comment.jsp?isbn=<%= isbn %>" method="post">
+		    
+            <fieldset>
 		        <legend>订单信息</legend>
+            	<img src= <%= figure %> width="300" height="300" class="img-responsive center-block" alt=<%= isbn %>>
 		        <div class="form-row">
-				<div class="field-label"><label for="field1">订单号</label>:</div>
-		            <p><%= order_id%></p>
+				<div class="field-label"><label for="field1">书名</label>:</div>
+		            <p>
+		            	<%= bookname%>
+		            </p>
 		        </div>
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field2">成交日期</label>:</div>
-		            <p><%= commitdate %></p>
+		            <div class="field-label"><label for="field2">ISBN</label>:</div>
+		            <p>
+		            	<%= isbn %>
+		            </p>
 		        </div>
 		          
 		        <div class="form-row">
-		            <div class="field-label"><label for="field3">订单总价</label>:</div>
-		            <p><%= totalprice%></p>
+		            <div class="field-label"><label for="field3">作者</label>:</div>
+		            <p>
+		            	<%= author%>
+		            </p>
 		        </div>
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field4">收件人</label>:</div>
-		            <p><%= reciever%></p>
+		            <div class="field-label"><label for="field4">出版社</label>:</div>
+		            <p>
+		            	<%= publishing_house%>
+		            </p>
 		        </div>
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field5">联系方式</label>:</div>
-		            <p><%= phone%></p>
-		        </div> 
-		        
-		        <div class="form-row">
-		            <div class="field-label"><label for="field6">买家留言</label>:</div>
-		            <p><%= message%></p>
+		            <div class="field-label"><label for="field6">评分</label>:</div>
+		            <p>
+		            	<%=score%>
+		            </p>
 		        </div>
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field6">国家</label>:</div>
-		            <p><%= country%></p>
-		        </div>
-		        
-		        <div class="form-row">
-		            <div class="field-label"><label for="field6">详细地址</label>:</div>
-		            <p><%= address%></p>
-		        </div>
-		        
-		        <div class="form-row">
+		            <div class="field-label"><label for="field8">最新评论</label>:</div>
 		            <div class="field-widget">
-		            <input type="button" value="开始评论" onclick="javascrtpt:window.location.href='mall_makecomment.jsp?order=<%=order_id%>&isbn=<%=isbn%>'">
+		             <%
+					ResultSet rs3=stmt.executeQuery("select * from Saleable_comments where isbn = "+isbn+" order by id desc limit 3");
+					while(rs3.next())
+					{
+						bookcom = rs3.getString(5);
+		            %>
+		             	<p><%= bookcom%></p>
+		            <%
+					}
+		            %>
+		             </div>
+		        </div>
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="field7">订单号</label>:</div>
+		            <p>
+		            	<%= order_id%>
+		            </p>
+		        </div>
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="field9">成交日期</label>:</div>
+		            <p>
+		            	<%= date%>
+		            </p>
+		        </div>
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="comment">我的评论</label>:</div>
+		            <div class="field-widget"><textarea name="comment" id="comment" /></textarea></div>
+		        </div>
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="comment">我的评分</label>:</div>
+		            <div class="field-widget">
+		            <input type="number" name="score" min="0" max="100" step="1" id="score" placeholder="0-100"/>
 		            </div>
 		        </div>
 		        
-		        <%--
-		        <div class="form-row">
-		            <div class="field-label"><label for="field7">评价</label>:</div>
-		            <div class="field-widget"><input name="field7" id="field7" /></div>
-		        </div>
-		        
-		        <div class="form-row">
-		            <div class="field-label"><label for="field7">评分</label>:</div>
-		            <div class="field-widget">
-		            <input type="number" name="num" min="0" max="100" step="1"/>
-		            </div>
-		        </div>
-		         --%>
-		        
+		    </fieldset>
 
-		    </fieldset> 
 		    
-            </div> <!-- end of /.main-content -->
-		    <%
-				}
-		    %>
+		    <input type="submit" class="submit" value="提交" />
+		    <input class="reset" type="button" value="重置" onclick="javascript:window.location.reload()" />
+		    </form>
 		    </div><!-- form_content -->
 		    
 <% 
@@ -258,9 +277,7 @@
 	        function formCallback(result, form) {
 	            window.status = "valiation callback for form '" + form.id + "': result = " + result;
 	        }
-	        function jump(){
-	        	window.location.replace("mall.jsp");
-	        }
+	        
 	        var valid = new Validation('test', {immediate : true, onFormValidate : formCallback});
 	        Validation.addAllThese([
 	            ['validate-password', '> 6 characters', {
@@ -281,6 +298,17 @@
 
             });
 	    </script>
+   <%--
+   <script type="text/javascript">
+            $(function() {
+
+                $('.mall-item > .item-image').each( function() { $(this).hoverdir({
+                    hoverDelay : 75
+                }); } );
+
+            });
+        </script>
+    --%>
         
 
 	</body>

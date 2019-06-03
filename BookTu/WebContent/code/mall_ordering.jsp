@@ -77,9 +77,11 @@
 			String author="";
 			String publishing_house="";
 			String price="";
+			String score="";
 			String introdution="";
 			int order_id = 0;
 			String str_date1="12";
+			String book_com = "";
 			
 			ResultSet rs=stmt.executeQuery("select * from saleable_books where isbn = "+isbn);
 			while(rs.next())
@@ -88,7 +90,8 @@
 				author = rs.getString(3);
 				publishing_house = rs.getString(4);
 				price = rs.getString(5);
-				introdution = rs.getString(6);
+				score = rs.getString(6);
+				introdution = rs.getString(7);
 			}
 			
 			ResultSet rs2=stmt.executeQuery("select count(*) from order_records");
@@ -96,6 +99,7 @@
 			{
 				order_id = Integer.parseInt(rs2.getString(1))+1;
 			}
+			
 		    %>
 		    <% 
 				java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -105,7 +109,7 @@
 			%>
 		    
 		    <div class="form_content">
-		    <form id="test" action="mall_ex_ordering.jsp?price=<%=price %>&order=<%=order_id %>&commit=<%=str_date1%>" method="post">
+		    <form id="test" action="mall_ex_ordering.jsp?isbn=<%=isbn %>&price=<%=price %>&order=<%=order_id %>&commit=<%=str_date1%>" method="post">
 		    
             <fieldset>
 		        <legend>商品信息</legend>
@@ -146,10 +150,33 @@
 		        </div> 
 		        
 		        <div class="form-row">
-		            <div class="field-label"><label for="field6">简介</label>:</div>
+		            <div class="field-label"><label for="field6">评分</label>:</div>
+		            <p>
+		            	<%=score%>
+		            </p>
+		        </div>
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="field7">简介</label>:</div>
 		            <p>
 		            	<%= introdution%>
 		            </p>
+		        </div> 
+		        
+		        <div class="form-row">
+		            <div class="field-label"><label for="field8">最新评论</label>:</div>
+		            <div class="field-widget">
+		             <%
+					ResultSet rs3=stmt.executeQuery("select * from Saleable_comments where isbn = "+isbn+" order by id desc limit 3");
+					while(rs3.next())
+					{
+						book_com = rs3.getString(5);
+		            %>
+		             	<p><%= book_com%></p>
+		            <%
+					}
+		            %>
+		             </div>
 		        </div>
 		    </fieldset> 
 
