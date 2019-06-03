@@ -240,50 +240,50 @@ create table Order_records
 );
 
 alter table Resources add constraint FK_user_resource foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table Book add constraint FK_user_book foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table BookComment add constraint FK_book_comment foreign key (book_id)
-      references Book (book_id);
+      references Book (book_id) on delete cascade on update cascade;
 
 alter table BookComment add constraint FK_user_book_comment foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table CollectedLink add constraint FK_user_collection foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table BookOrder add constraint FK_user_order foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table Post add constraint FK_user_post foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table PostComment add constraint FK_post_comment foreign key (post_id)
-      references Post (post_id);
+      references Post (post_id) on delete cascade on update cascade;
 
 alter table PostComment add constraint FK_user_post_comment foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
 alter table Sale add constraint FK_book_sale foreign key (book_id)
-      references Book (book_id);
+      references Book (book_id) on delete cascade on update cascade;
 
 alter table Sale add constraint FK_order_sale foreign key (order_id)
-      references BookOrder (order_id);
+      references BookOrder (order_id) on delete cascade on update cascade;
 
 alter table SaleComment add constraint FK_sale_comment foreign key (sale_id)
-      references Sale (sale_id);
+      references Sale (sale_id) on delete cascade on update cascade;
 
 alter table SaleComment add constraint FK_user_sale_comment foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
       
 alter table BookCommentReply add constraint FK_user_book_comment_reply foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
      
 alter table BookCommentReply add constraint FK_book_comment_book_comment_reply foreign key (book_comment_id)
-      references BookComment (book_comment_id);
+      references BookComment (book_comment_id) on delete cascade on update cascade;
 
 alter table Message add constraint FK_user_message foreign key (user_id)
-      references User (user_id);
+      references User (user_id) on delete cascade on update cascade;
 
