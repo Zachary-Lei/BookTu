@@ -106,7 +106,7 @@
                                         <a href="PC_EditInfo.jsp">编辑个人信息</a>
                                     </li>
                                     <li>
-                                        <a href="PC_MessageLeft.jsp">留言</a>
+                                        <a href="PC_MessageLeft.jsp">微日记</a>
                                     </li>
                                     <li>
                                         <a href="PC_MyFavourite.jsp">我的收藏</a>
