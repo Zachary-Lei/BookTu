@@ -14,7 +14,7 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
 
-        <title>留言区</title>
+        <title>微日记</title>
 
         <!-- meta -->
         <meta charset="utf-8">
@@ -49,7 +49,7 @@
 
                                 <ol class="breadcrumb">
                                     <li><a href="PC_PersonalCenter.jsp">个人主页</a></li>
-                                    <li class="active">留言</li>
+                                    <li class="active">微日记</li>
                                 </ol> <!-- end of /.breadcrumb -->
 
                             </div>
@@ -101,8 +101,8 @@
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
                                     <h2 class="section-title">微日记</h2>
-                                    <p class="section-sub-title">
-                                        	欢迎在下方为自己留言
+                                    <!--<p class="section-sub-title">
+                                        	欢迎在下方为自己留言 -->
                                     </p> <!-- /section-sub-title -->
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
 
-                                <button type="submit" id="submit" name="submit" class="btn btn-black">留言</button>
+                                <button type="submit" id="submit" name="submit" class="btn btn-black">提交</button>
                             
                         </form> <!-- form end -->
                     </section> <!-- /.contact-form -->
