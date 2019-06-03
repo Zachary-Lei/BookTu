@@ -111,6 +111,19 @@
                                     <li>
                                         <a href="PC_MyFavourite.jsp">我的收藏</a>
                                     </li>
+                                    <%
+                                    if(session.getAttribute("user_type").compareTo("1") == 0)
+                                    {
+                                    %>
+                                    <li>
+                                        <a href="PC_MyFavourite.jsp">管理用户</a>
+                                    </li>
+                                    <li>
+                                        <a href="PC_MyFavourite.jsp">管理书籍</a>
+                                    </li>
+                                    <%
+                                    }
+                                    %>
                                 </ul> <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
                            
