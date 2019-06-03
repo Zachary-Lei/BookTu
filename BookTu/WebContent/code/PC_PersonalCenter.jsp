@@ -90,7 +90,7 @@ while(rs.next())
                     </p>
 
 
-
+<%--
                     <!-- contact adresses section begin -->
                     <section class="contact-address bg-white">
                         <div class="row">
@@ -160,7 +160,7 @@ while(rs.next())
 
                         </div>
                     </section> <!-- /.contact-address -->
-
+ --%>
 
 
                     <!-- self introduction -->
