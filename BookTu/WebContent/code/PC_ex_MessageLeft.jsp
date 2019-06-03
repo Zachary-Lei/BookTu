@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>留言处理中</title>
+<title>微日记处理中</title>
 </head>
 <body>
 
