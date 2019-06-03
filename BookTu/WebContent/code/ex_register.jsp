@@ -49,7 +49,7 @@
 				    pstmt.setString(4,"");
 				    pstmt.setInt(5, 0);
 				    pstmt.setString(6, "");
-				    pstmt.setInt(7, 1);
+				    pstmt.setInt(7, 0);
 				    pstmt.executeUpdate();
 				    %>
 				
