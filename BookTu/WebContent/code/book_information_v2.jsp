@@ -177,7 +177,7 @@
 		<h1><%=rs1.getString(3) %></h1>
 		<div id="content">
 			<div>
-				<img src="sakura.jpg" id="surface">
+				<img src="assets/img/book_surface/<%=rs1.getString("book_name") %>.jpg" id="surface">
 				<div id="info">
 					<span>作者：</span><a href="#"><span id="author"><%=rs1.getString("author") %></span></a><br>
 					<span>出版社：</span><span id="press"><%=rs1.getString("publishing_house") %></span><br>
@@ -191,7 +191,7 @@
 				
 				<div id="operate">
 					<a href="#"><i class ="fa fa-pencil fa-1g"></i>写笔记</a>
-					<a href="write_book_comment?book_name=<%=rs1.getString(3)%>"><i class ="fa fa-pencil fa-1g"></i>写书评</a>
+					<a href="write_book_comment.jsp?book_name=<%=rs1.getString(3)%>"><i class ="fa fa-pencil fa-1g"></i>写书评</a>
 					<a href="#"><i class ="fa fa-cny fa-1g"></i>加入购书单</a>
 					<a href="#">分享到<i class ="fa fa-caret-down fa-1g"></i></a>
 					<a href="#" id="rec">推荐</a>

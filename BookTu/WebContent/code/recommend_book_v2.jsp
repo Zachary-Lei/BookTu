@@ -262,7 +262,7 @@
         
             <li>
                 <a href="book_information_v2.jsp?book_id=<%=rs1.getString(1)%>">
-                    <img src="assets/img/Penguins.jpg">
+                    <img src="assets/img/book_surface/<%=rs1.getString("book_name")%>.jpg">
                     <span><%=rs1.getString(3) %></span>
                 </a>
                 <span><%=rs1.getString(5) %></span>

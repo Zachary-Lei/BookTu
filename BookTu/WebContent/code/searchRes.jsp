@@ -77,7 +77,7 @@
 	        		%>
 	        		<div>
 	        			<div style="width:1000px;height:122px;border-top:1px solid black;padding:10px;margin-bottom:20px;">
-	        				<img alt="picture" src="assets/img/Penguins.jpg" style="width:61.8px;height:100px;float:left;">
+	        				<img alt="picture" src="assets/img/book_surface/<%= rs1.getString("book_name")%>.jpg" style="width:61.8px;height:100px;float:left;">
 	        				<div style="font-size:2em;font-weight:bold;margin-left:70px;"><%=rs1.getString("book_name") %></div>
 	        				<div style="margin-left:80px;"><%=rs1.getString("author") %></div>
 	        				<div style="margin-left:80px;"><%=rs1.getString("introduction") %></div>

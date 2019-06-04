@@ -46,7 +46,7 @@
                                         <a href="service.html">新书速览</a>
                                     </li>
                                     <li>
-                                        <a href="recomment_book_v2.jsp">最受欢迎书籍</a>
+                                        <a href="recommend_book_v2.jsp">最受欢迎书籍</a>
                                     </li>
                                     <li>
                                         <a href="portfolio.html">....</a>
