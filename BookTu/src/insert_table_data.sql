@@ -33,7 +33,7 @@ insert into CollectedLink values(1,1,"https://www.baidu.com","百度");
 insert into CollectedLink values(2,1,"https://github.com/Zachary-Lei/BookTu","书途");
 
 
-insert into Saleable_Books values("9787115428028", "Python编程", "[美]埃里克·马瑟斯",       "人民邮电出版社", 32, 50, "本书是一本针对所有层次的Python 读者而作的Python入门书。");
-insert into Saleable_Books values("9787121022982", "代码大全",   "[美] 史蒂夫·迈克康奈尔",  "电子工业出版社", 43, 50, "第2版的《代码大全》是著名IT畅销书作者史蒂夫·迈克康奈尔11年前的经典著作的全新演绎。");
-insert into Saleable_Books values("9787115249494", "黑客与画家", "[美] 保罗·格雷厄姆",      "人民邮电出版社", 25, 50, "本书是硅谷创业之父Paul Graham 的文集，主要介绍黑客即优秀程序员的爱好和动机");
-insert into Saleable_Books values("9787115447630", "算法图解",   " [美] Aditya Bhargava",   "人民邮电出版社", 40, 50, "本书示例丰富，图文并茂，以让人容易理解的方式阐释了算法，旨在帮助程序员在日常项目中更好地发挥算法的能量。");
+insert into Saleable_Books values("9787115428028", "Python编程", "[美]埃里克·马瑟斯",       "人民邮电出版社", 32, "本书是一本针对所有层次的Python 读者而作的Python入门书。");
+insert into Saleable_Books values("9787121022982", "代码大全",   "[美] 史蒂夫·迈克康奈尔",  "电子工业出版社", 43, "第2版的《代码大全》是著名IT畅销书作者史蒂夫·迈克康奈尔11年前的经典著作的全新演绎。");
+insert into Saleable_Books values("9787115249494", "黑客与画家", "[美] 保罗·格雷厄姆",      "人民邮电出版社", 25, "本书是硅谷创业之父Paul Graham 的文集，主要介绍黑客即优秀程序员的爱好和动机");
+insert into Saleable_Books values("9787115447630", "算法图解",   " [美] Aditya Bhargava",   "人民邮电出版社", 40, "本书示例丰富，图文并茂，以让人容易理解的方式阐释了算法，旨在帮助程序员在日常项目中更好地发挥算法的能量。");
