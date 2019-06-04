@@ -43,23 +43,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>书籍推荐</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="service.html">新书速览</a>
-                                    </li>
-                                    <li>
                                         <a href="recommend_book_v2.jsp">最受欢迎书籍</a>
                                     </li>
-                                    <li>
-                                        <a href="portfolio.html">....</a>
-                                    </li>
-                                    <li>
-                                        <a href="gallery.html">gallery</a>
-                                    </li>
-                                    <li>
-                                        <a href="404.html">404 page</a>
-                                    </li>
-                                    <li>
-                                        <a href="coming_soon.html">coming soon</a>
-                                    </li>
+                                    
                                 </ul>  <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
 
@@ -83,10 +69,6 @@
                                     </li>
                                 </ul> <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
-
-                            <li>
-                                <a href="contact.html"><span>contact</span></a>
-                            </li>
                             
                             <li>
                                 <a href="mall.jsp"><span>在线书店</span></a>
