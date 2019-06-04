@@ -48,7 +48,6 @@ create table Book
    author               varchar(50),
    introduction         varchar(1000),
    score                int,
-   type                 varchar(50),
    publishing_house     varchar(50),
    tag                  varchar(50),
    layout               varchar(10),
