@@ -28,9 +28,11 @@ drop table if exists Resources;
 
 drop table if exists Message;
 
-drop table if exists Saleable_Books;
+drop table if exists saleable_comments;
 
 drop table if exists Order_records;
+
+drop table if exists Saleable_Books;
 
 drop table if exists personalcenter;
 
