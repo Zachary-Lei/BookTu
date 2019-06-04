@@ -251,7 +251,7 @@
         
         <%
 	        Statement stmt1 = connect.createStatement();
-	        ResultSet rs1=stmt1.executeQuery("select * from Book order by book_id desc;");
+	        ResultSet rs1=stmt1.executeQuery("select * from Book order by score desc;");
 	      	while(rs1.next() ) {   
 	      		Statement stmt2 = connect.createStatement();
 	        	ResultSet rs2=stmt2.executeQuery("select * from User where user_id = " + rs1.getInt(2)  +  ";");
