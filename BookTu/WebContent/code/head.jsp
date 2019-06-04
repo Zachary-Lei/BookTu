@@ -46,7 +46,7 @@
                                         <a href="service.html">新书速览</a>
                                     </li>
                                     <li>
-                                        <a href="recommend_book_v2.jsp">最受欢迎书籍</a>
+                                        <a href="recomment_book_v2.jsp">最受欢迎书籍</a>
                                     </li>
                                     <li>
                                         <a href="portfolio.html">....</a>
@@ -106,11 +106,24 @@
                                         <a href="PC_EditInfo.jsp">编辑个人信息</a>
                                     </li>
                                     <li>
-                                        <a href="PC_MessageLeft.jsp">留言</a>
+                                        <a href="PC_MessageLeft.jsp">微日记</a>
                                     </li>
                                     <li>
                                         <a href="PC_MyFavourite.jsp">我的收藏</a>
                                     </li>
+                                    <%
+                                    if(session.getAttribute("user_type").toString().compareTo("1") == 0)
+                                    {
+                                    %>
+                                    <li>
+                                        <a href="PC_UserManagement.jsp">管理用户</a>
+                                    </li>
+                                    <li>
+                                        <a href="PC_BookManagement.jsp">管理书籍</a>
+                                    </li>
+                                    <%
+                                    }
+                                    %>
                                 </ul> <!-- end of /.dropdown-menu -->
                             </li> <!-- end of /.dropdown -->
                            
