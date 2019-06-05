@@ -227,7 +227,7 @@ create table Saleable_Books
    author               varchar(50),
    publishing_house     varchar(50),
    price                int,
-   score				int,
+   score				double,
    introduction         varchar(500),
    primary key (isbn)
 );
@@ -258,6 +258,7 @@ create table Saleable_comments
    id              		int,
    isbn              	char(13),
    user_id				int,
+   score				int,
    comments		        varchar(500),
    primary key (id)
 );

@@ -37,21 +37,17 @@
     		position: relative;
     	}
     	#surface {
-    		width: 210px;
-    		height: 300px;
+    		width: 130px;
+    		height: 210px;
     		position: absolute;
     		left: 20px;
-    		top:20px;
     		
     	}
     	#info {
     		position: relative;
-    		left: 260px;
+    		left: 170px;
     		margin-bottom: 100px;
     		line-height: 1.5em;
-    		top:30px;
-    		line-height:2em;
-    		font-size:1.5em;
     	}
     	#score {
     		position: absolute;
@@ -98,9 +94,6 @@
     		margin-left: 15px;
     		margin-top: 20px;
     		position: relative;
-    		border-bottom:1px solid gray;
-    		padding-bottom:20px;
-    		margin-bottom:20px;
     	}
     	#operate a {
     		margin-right: 15px;
@@ -134,9 +127,6 @@
             width: 1000px;
             padding-left: 5px;
             text-indent: 2em;
-    	}
-    	#shortcomment {
-    		margin:20px auto;
     	}
     </style>
   
@@ -202,20 +192,20 @@
 				<div id="operate">
 					<a href="#"><i class ="fa fa-pencil fa-1g"></i>写笔记</a>
 					<a href="write_book_comment.jsp?book_name=<%=rs1.getString(3)%>"><i class ="fa fa-pencil fa-1g"></i>写书评</a>
-					<a href="#"><i class ="fa fa-star fa-1g"></i>加入心愿书单</a>
+					<a href="#"><i class ="fa fa-cny fa-1g"></i>加入购书单</a>
 					<a href="#">分享到<i class ="fa fa-caret-down fa-1g"></i></a>
 					<a href="#" id="rec">推荐</a>
 				</div>
 				<div id="book_info">
-					<h2><span>内容简介</span></h2>
+					<h2><span>内容简介······</span></h2>
 					<div id="bookreport" style="font-size:1.25em;"><%=rs1.getString("introduction") %><br></div>
 				</div>
 				<div id="author_info">
-					<h2><span>作者简介</span></h2>
+					<h2><span>作者简介······</span></h2>
 					<div id="authorreport" style="font-size:1.25em;"><%=rs1.getString("author")%><br></div>
 				</div>
-				<div id="shortcomment">
-					<h2><span>短评</span></h2>
+				<div id="shorcomment">
+					<h2><span>短评·····</span></h2>
 					<div id="shortcommentwindow">
 						<%
 							Statement stmt3 = connect.createStatement();

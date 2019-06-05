@@ -11,7 +11,7 @@
   	
 	String url="jdbc:mysql://localhost:3306/booktu?serverTimezone=GMT%2B8";
 	String user="root";
-	String pwd="520aioolbq";
+	String pwd="passwd";
 	Connection connect;
 	%>
 	<%connect=DriverManager.getConnection(url,user,pwd); %>
