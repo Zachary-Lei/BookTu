@@ -47,11 +47,15 @@
         .clear { clear: both;  }
 
         .board, .recommendwindow { 
-            width: 620px; 
+            width: 1200px; 
             
         }
         .board {
             margin: 50px auto;
+        }
+        #board1 {
+        	margin-top:250px;
+        	width:1200px;
         }
 
         .boardmenu {  height: 18px; border-bottom: 1px solid whitesmoke; padding-bottom: 7px; margin: 5px;padding-bottom: 15px;}
@@ -61,7 +65,7 @@
         .boardmenu .more a { font-size: 13px;font-family: sans-serif;  }
         .recommendwindow li {
             width: 19%;
-            height: 50%;
+            height: 100%;
             
             list-style-type: none;  
             display: inline-block;
@@ -77,6 +81,7 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
+            font-size:2em;
         }
         .recommendwindow {
             height: 400px;
@@ -86,6 +91,7 @@
 
         #tag {
             height: 200px;
+            width:1200px;
            
         }
         li {list-style-type:none; }
@@ -93,30 +99,34 @@
         #nav>li {
            float: left;
            position: relative;
-           width:100px;
+           width:190px;
            height: 27px; 
            display: block; 
            text-align: center; 
            top: 10px;
-           background-color: green;
+           background-color: #AAA;
            
         }
          #nav>li span {
             font-size: 2em;
+            
          }
         #nav {
            width:100%;
            display: inline-block;
 
         }
+        
         #nav li ul {
-           width: 100px;
+           width: 190px;
            position: absolute; 
            text-align: center;
-
+        }
+        #nav li ul li a {
+        	font-size:2em;
         }
         #nav li:hover {
-            background-color: yellow;
+            background-color: #999;
         }
 
   	</style>
