@@ -56,6 +56,7 @@
 					}
 					if(nickname != null && nickname != "")
 					{
+						session.setAttribute("nickname",nickname);
 						updation += "nickname = \""+nickname+"\",";
 					}
 					if(intro != null && intro != "")
